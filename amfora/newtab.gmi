@@ -1,0 +1,14 @@
+# New Tab
+
+=> gemini://moddedbear.xyz/subs/feed.gmi Subscriptions
+=> gemini://warmedal.se/~antenna/ Antenna
+=> gemini://moddedbear.xyz/links.gmi Bookmarks
+=> gemini://geminispace.info/search geminispace.info search
+
+=> gemini://moddedbear.xyz/ moddedbear.xyz
+=> gemini://astrobotany.mozz.us/app Astrobotany
+=> gemini://station.martinrue.com Station
+=> gemini://geddit.glv.one/ Geddit
+
+=> gemini://gemini.circumlunar.space/ Project Gemini
+=> gemini://makeworld.gq/amfora-wiki/ Amfora Wiki

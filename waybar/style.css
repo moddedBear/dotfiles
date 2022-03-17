@@ -1,0 +1,66 @@
+/* General */
+* {
+  border-radius: 0;
+  font-family: "Manrope", "Font Awesome 6 Free";
+  font-size: 13px;
+  color: #c0caf5;
+}
+
+window#waybar {
+  background-color: #2e3440;
+}
+
+/* Workspaces */
+#workspaces button {
+  padding: 0 5px;
+}
+
+/* Workspaces */
+#workspaces button:hover {
+  background: #4c566a;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+#workspaces button.focused {
+  background-color: #4c566a;
+}
+
+/* Modules */
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#tray,
+#custom-notification,
+#idle_inhibitor,
+#mode {
+  padding: 0 3px;
+  margin: 0 8px;
+}
+
+#mode,
+#custom-updates {
+  font-weight: bold;
+  color: #bb9af7;
+}
+
+#custom-failed-services {
+  font-weight: bold;
+  color: #f7768e;
+}
+
+#network.disconnected {
+  font-weight: bold;
+  color: #bf616a;
+}
+
+tooltip {
+	color: white;
+	background-color: #3b4252;
+	border: 2px solid #434c5e;
+	box-shadow: none;
+	text-shadow: none;
+}

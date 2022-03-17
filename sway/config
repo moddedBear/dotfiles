@@ -1,0 +1,238 @@
+### Variables
+
+# Set logo key as main modifier
+set $mod Mod4
+
+# Set programs
+set $TERMINAL foot
+set $BROWSER env MOZ_ENABLE_WAYLAND=1 firefox
+set $EXPLORER dolphin
+
+# Colors
+set $foreground #eceff4
+set $highlight #5e81ac
+set $dark #2e3440
+set $red #bf616a
+set $wallpaper ~/Pictures/nord-wallpapers/bruno-kelzer-forest-unsplash.png
+set $lock_cmd swaylock --daemonize --image $wallpaper
+set $sleep_cmd systemctl suspend
+
+# Set color for focused window
+client.focused $highlight $highlight $foreground
+
+# Set color for other windows
+client.focused_inactive $dark $dark $foreground
+client.unfocused $dark $dark $foreground
+client.urgent $red $red $foreground
+
+# Set font
+font pango:Manrope 10
+
+### Output configuration
+
+# Set wallpaper
+output * bg $wallpaper fill
+
+output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
+output eDP-1 pos 1920 312
+
+### Idle configuration
+
+# Lock the screen after 300 seconds of inactivity, then turn off
+# all displays after another 300 seconds, and turn the screens back on when
+# resumed. It will also lock the screen before the computer goes to sleep.
+exec swayidle -w \
+    timeout 900 '$lock_cmd' \
+    timeout 1200 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    timeout 1800 '$sleep_cmd' \
+    before-sleep '$lock_cmd' \
+    lock '$lock_cmd'
+
+# Inhibit idle if a window is in fullscreen
+for_window [shell=".*"] inhibit_idle fullscreen
+
+### Input configuration
+
+# Mouse
+# Hide mouse cursor when not used
+seat * hide_cursor 8000
+
+# Touchpad
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
+# Keyboard
+input type:keyboard {
+    # Map caps lock to escape and use right alt as compose key to create umlauts
+    # To actually create them, type the following keys in a sequence:
+    # ralt + " + u --> ü
+    xkb_options caps:escape,compose:ralt
+}
+
+### Key bindings
+
+# App launcher
+# bindsym $mod+space exec wofi --show drun --no-actions --insensitive --prompt 'Run' -W 500 -H 400 | xargs swaymsg exec --
+# bindsym $mod+space exec wofi --show run
+bindsym $mod+space exec kickoff
+
+# Launch terminal
+bindsym $mod+Return exec $TERMINAL
+
+# Launch browser
+bindsym $mod+w exec $BROWSER
+
+# Launch explorer
+bindsym $mod+e exec $EXPLORER
+
+# Take screenshots
+bindsym Print+s exec grim "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym Print+$mod+s exec grim -g "$(slurp)" "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym Print exec grim - | wl-copy -t image/png
+bindsym Print+$mod exec grim -g "$(slurp)" - | wl-copy -t image/png
+
+# Lock screen
+bindsym $mod+ctrl+q exec loginctl lock-session
+
+# Sleep
+bindsym $mod+Shift+s exec $lock_cmd && $sleep_cmd
+
+# Logout
+bindsym $mod+ctrl+Shift+q exec loginctl terminate-user $USER
+
+# Media control
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Move focus around
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+bindsym $mod+tab workspace back_and_forth
+bindsym $mod+ctrl+l workspace next_on_output
+bindsym $mod+ctrl+h workspace prev_on_output
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# https://github.com/nzig/sway-new-workspace
+bindsym $mod+n exec sway-new-workspace open
+bindsym $mod+Shift+n exec sway-new-workspace move
+
+# Splitting direction
+bindsym $mod+b split toggle
+bindsym $mod+t layout toggle split tabbed
+
+# Make current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Make current focus floating
+bindsym $mod+ctrl+f floating toggle, border normal 2
+floating_modifier $mod normal
+
+# Resizing containers
+bindsym $mod+r mode 'resize'
+mode 'resize' {
+    # Resizing keys
+    bindsym h resize shrink width 10px
+    bindsym j resize grow height 10px
+    bindsym k resize shrink height 10px
+    bindsym l resize grow width 10px
+
+    # Return to default mode
+    bindsym Escape mode 'default'
+}
+
+#
+# Status Bar
+#
+bar {
+    swaybar_command waybar
+}
+
+# Hide window title bars and borders
+default_border pixel
+hide_edge_borders smart
+
+# Start notification daemon
+# exec mako
+exec swaync
+bindsym $mod+ctrl+n exec swaync-client -t -sw
+
+# Start display management daemon
+# exec kanshi
+
+# Adjust color temperature to reduce eye strain
+# exec gammastep -l '46.95:7.45'
+
+# Clipboard manager
+exec wl-paste --type text --watch clipman store
+bindsym $mod+v exec clipman pick --tool wofi
+
+# Screen sharing
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# Emoji picker
+bindsym $mod+period exec wofi-emoji
+
+# Autotiling script
+exec_always killall autotiling
+exec_always autotiling
+
+# Dynamically rename workspaces with program icons
+exec_always killall sworkstyle
+exec_always sworkstyle &> /tmp/sworkstyle.log
+
+# Autostart
+exec telegram-desktop -startintray
+
+# Window rules
+
+## Android emulator
+#for_window [title="^Android Emulator - .+$"] floating enable
+
+include /etc/sway/config.d/*

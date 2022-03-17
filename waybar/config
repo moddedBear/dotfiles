@@ -1,0 +1,81 @@
+{
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-right": [
+  	"tray",
+    "custom/notification",
+  	"idle_inhibitor",
+  	"memory",
+    "network",
+    "pulseaudio",
+    "battery",
+    "clock"
+  ],
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup>°</sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup>°</sup></span>",
+      "dnd-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "tray": {
+  	"show-passive-items": true,
+  	"spacing": 11
+  },
+  "idle_inhibitor": {
+  	"format": "{icon}",
+  	"format-icons": {
+  		"activated": "",
+  		"deactivated": ""
+  	}
+  },
+  "memory": {
+  	"interval": 10,
+  	"format": "{percentage}% ",
+  },
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "clock": {
+    "format": "{:%a %d %b / %I:%M %p}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n\n<tt><small>{calendar}</small></tt>"
+  },
+  "network": {
+    "format-ethernet": "",
+    "format-wifi": "{essid} ",
+    "format-linked": "",
+    "format-disconnected": "",
+    "tooltip-format-wifi": "{essid} at {signalStrength}%",
+    "on-click": "foot nmtui"
+  },
+  "pulseaudio": {
+  	"on-click": "pavucontrol",
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon} ",
+    "format-muted": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "default": ["", "", ""],
+      "headphone": "",
+      "headset": "",
+      "hands-free": "",
+      "portable": "",
+      "car": "",
+      "phone": ""
+    }
+  }
+}
