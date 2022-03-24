@@ -1,6 +1,10 @@
 ### Set manpager to bat
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
+function fish_greeting
+    /usr/local/bin/pokemon-colorscripts -r
+end
+
 function update_cwd_osc --on-variable PWD --description 'Notify terminals when $PWD changes'
 	if status --is-command-substitution || set -q INSIDE_EMACS
 		return
