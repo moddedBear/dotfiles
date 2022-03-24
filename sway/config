@@ -33,8 +33,10 @@ font pango:Manrope 10
 # Set wallpaper
 output * bg $wallpaper fill
 
-output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
-output eDP-1 pos 1920 312
+# output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
+# output "Unknown 4Series43 0x00000000" pos 3286 0
+# output eDP-1 pos 1920 312
+exec kanshi
 
 ### Idle configuration
 
