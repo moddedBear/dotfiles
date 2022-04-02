@@ -201,12 +201,11 @@ default_border pixel
 hide_edge_borders smart
 
 # Start notification daemon
-# exec mako
-exec swaync
+exec_always killall swaync && swaync
 bindsym $mod+ctrl+n exec swaync-client -t -sw
 
 # Start display management daemon
-# exec kanshi
+exec_always killall kanshi && kanshi
 
 # Adjust color temperature to reduce eye strain
 # exec gammastep -l '46.95:7.45'
