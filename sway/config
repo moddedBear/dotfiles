@@ -36,7 +36,7 @@ output * bg $wallpaper fill
 # output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
 # output "Unknown 4Series43 0x00000000" pos 3286 0
 # output eDP-1 pos 1920 312
-exec_always killall -9 kanshi && kanshi
+exec kanshi
 
 ### Idle configuration
 
@@ -201,7 +201,7 @@ default_border pixel
 hide_edge_borders smart
 
 # Start notification daemon
-exec_always killall swaync && swaync
+exec swaync
 bindsym $mod+ctrl+n exec swaync-client -t -sw
 
 # Start display management daemon
