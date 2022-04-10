@@ -1,5 +1,5 @@
 {
-  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-left": ["sway/workspaces", "sway/window"],
   "modules-right": [
   	"tray",
     "custom/notification",
