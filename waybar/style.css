@@ -17,13 +17,13 @@ window#waybar {
 
 /* Workspaces */
 #workspaces button:hover {
-  background: #3b4252;
+  background: #434c5e;
   border-color: transparent;
   box-shadow: none;
 }
 
 #workspaces button.focused {
-  background-color: #3b4252;
+  background-color: #434c5e;
 }
 
 /* Window title */
