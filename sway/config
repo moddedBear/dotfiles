@@ -231,6 +231,9 @@ exec_always sworkstyle &> /tmp/sworkstyle.log
 # Autostart
 exec telegram-desktop -startintray
 
+# Start KDE polkit agent
+exec /usr/lib/polkit-kde-authentication-agent-1
+
 # Window rules
 
 ## Android emulator
