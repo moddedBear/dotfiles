@@ -8,6 +8,10 @@
 @define-color bg-focus #434c5e;
 @define-color bg-selected #5e81ac;
 
+* {
+	font-family: "Manrope";
+}
+
 .notification-row {
   outline: none;
 }
@@ -104,6 +108,7 @@
   background: transparent;
   color: white;
   text-shadow: none;
+  font-size: 13px;
 }
 
 .top-action-title {
