@@ -6,6 +6,7 @@ set $mod Mod4
 # Set programs
 set $TERMINAL foot
 set $BROWSER env MOZ_ENABLE_WAYLAND=1 firefox
+set $LAUNCHER env STUDIO_JDK=/usr/lib/jvm/java-11-openjdk/ _JAVA_AWT_WM_NONREPARENTING=1 kickoff
 set $EXPLORER dolphin
 
 # Colors
@@ -79,7 +80,7 @@ input type:keyboard {
 # App launcher
 # bindsym $mod+space exec wofi --show drun --no-actions --insensitive --prompt 'Run' -W 500 -H 400 | xargs swaymsg exec --
 # bindsym $mod+space exec wofi --show run
-bindsym $mod+space exec kickoff
+bindsym $mod+space exec $LAUNCHER
 
 # Launch terminal
 bindsym $mod+Return exec $TERMINAL
