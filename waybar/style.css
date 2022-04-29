@@ -1,9 +1,9 @@
 /* General */
 * {
-  border-radius: 0;
+  /* border-radius: 0; */
   font-family: "Manrope", "Font Awesome 6 Free";
   font-size: 13px;
-  color: #c0caf5;
+  color: #d8dee9; 
 }
 
 window#waybar {
@@ -16,14 +16,23 @@ window#waybar {
 }
 
 /* Workspaces */
+#workspaces {
+	background: #434c5e;
+	border-radius: 15px;
+}
+
+#workspaces button {
+	border-radius: 15px;
+}
+
 #workspaces button:hover {
-  background: #434c5e;
+  background: #4c566a;
   border-color: transparent;
   box-shadow: none;
 }
 
 #workspaces button.focused {
-  background-color: #434c5e;
+  background-color: #5e81ac;
 }
 
 /* Window title */
