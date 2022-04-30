@@ -3,7 +3,7 @@
   /* border-radius: 0; */
   font-family: "Manrope", "Font Awesome 6 Free";
   font-size: 13px;
-  color: #d8dee9; 
+  /* color: #d8dee9; */
 }
 
 window#waybar {
@@ -32,7 +32,8 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  background-color: #5e81ac;
+  background-color: #81a1c1;
+  color: #2e3440;
 }
 
 /* Window title */
@@ -51,6 +52,7 @@ window#waybar {
 #custom-notification,
 #idle_inhibitor,
 #mode {
+  color: #d8dee9;
   padding: 0 3px;
   margin: 0 8px;
 }
