@@ -18,11 +18,16 @@ window#waybar {
 /* Workspaces */
 #workspaces {
 	background: #434c5e;
-	border-radius: 15px;
+	border-radius: 0 15px 15px 0;
+}
+
+#workspaces button:first-child {
+	border-radius: 0 15px 15px 0;
 }
 
 #workspaces button {
 	border-radius: 15px;
+	min-width: 15px;
 }
 
 #workspaces button:hover {
