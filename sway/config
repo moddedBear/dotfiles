@@ -14,7 +14,7 @@ set $foreground #eceff4
 set $highlight #5e81ac
 set $dark #2e3440
 set $red #bf616a
-set $wallpaper ~/Pictures/nord-wallpapers/bruno-kelzer-forest-unsplash.png
+set $wallpaper ~/Pictures/background
 set $lock_cmd swaylock --daemonize --image $wallpaper
 set $sleep_cmd systemctl suspend
 
@@ -196,6 +196,10 @@ mode 'resize' {
 bar {
     swaybar_command waybar
 }
+
+# Window gaps
+gaps inner 10
+gaps outer 3
 
 # Hide window title bars and borders
 default_border pixel

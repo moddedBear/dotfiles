@@ -7,7 +7,8 @@
 }
 
 window#waybar {
-  background-color: #2e3440;
+  /* background-color: #2e3440; */
+  background-color: transparent;
 }
 
 /* Workspaces */
@@ -43,10 +44,25 @@ window#waybar {
 
 /* Window title */
 #window {
-	padding: 0 5px;
+	padding: 0 15px;
+}
+
+#waybar.empty #window {
+	padding: 0;
 }
 
 /* Modules */
+
+.modules-left {
+	background-color: #2e3440;
+	border-radius: 0 15px 15px 0;
+}
+
+.modules-right {
+	background-color: #2e3440;
+	border-radius: 15px 0 0 15px;
+}
+
 #clock,
 #battery,
 #network,
