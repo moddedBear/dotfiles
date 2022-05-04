@@ -9,6 +9,21 @@ set $BROWSER env MOZ_ENABLE_WAYLAND=1 firefox
 set $LAUNCHER env STUDIO_JDK=/usr/lib/jvm/java-11-openjdk/ _JAVA_AWT_WM_NONREPARENTING=1 kickoff
 set $EXPLORER dolphin
 
+# wob
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob \
+	-a top  \
+	-a right \
+	--border 0 \
+	--height 15 \
+	--offset 2 \
+	--border-color "#eceff4ff" \
+	--background-color "#3b4252ff" \
+	--bar-color "#eceff4ff" \
+	--overflow-bar-color "#bf616aff" \
+	--overflow-background-color "#3b4252ff" \
+	--overflow-border-color "#eceff4ff"
+
 # Colors
 set $foreground #eceff4
 set $highlight #5e81ac
@@ -107,12 +122,12 @@ bindsym $mod+Shift+s exec $lock_cmd && $sleep_cmd
 bindsym $mod+ctrl+Shift+q exec loginctl terminate-user $USER
 
 # Media control
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
