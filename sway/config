@@ -107,9 +107,9 @@ bindsym $mod+w exec $BROWSER
 bindsym $mod+e exec $EXPLORER
 
 # Take screenshots
-bindsym Print+s exec grim "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym Print+s exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
 bindsym Print+$mod+s exec grim -g "$(slurp)" "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
-bindsym Print exec grim - | wl-copy -t image/png
+bindsym Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy -t image/png
 bindsym Print+$mod exec grim -g "$(slurp)" - | wl-copy -t image/png
 
 # Lock screen
@@ -236,6 +236,7 @@ bindsym $mod+v exec clipman pick --tool wofi
 
 # Screen sharing
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 # Emoji picker
 bindsym $mod+period exec wofi-emoji
