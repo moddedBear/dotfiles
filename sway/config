@@ -94,6 +94,7 @@ input type:keyboard {
 
 # App launcher
 bindsym $mod+space exec wofi --show drun --no-actions --insensitive --prompt 'Run' -W 500 -H 400 | xargs swaymsg exec --
+bindsym $mod+comma exec ~/dotfiles/wofi-scripts/windows.py
 # bindsym $mod+space exec wofi --show run
 # bindsym $mod+space exec $LAUNCHER
 
