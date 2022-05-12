@@ -1,0 +1,3 @@
+[submodule "wofi-scripts"]
+	path = wofi-scripts
+	url = https://github.com/moddedBear/wofi-scripts.git
