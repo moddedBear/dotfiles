@@ -17,6 +17,6 @@
 }
 
 #entry:selected {
-  background-color: #5e81ac;
+  /* background-color: #5e81ac; */
   outline: none;
 }

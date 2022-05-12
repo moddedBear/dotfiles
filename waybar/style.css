@@ -29,6 +29,7 @@ window#waybar {
 #workspaces button {
 	border-radius: 15px;
 	min-width: 15px;
+	color: #d8dee9;
 }
 
 #workspaces button:hover {
@@ -45,6 +46,7 @@ window#waybar {
 /* Window title */
 #window {
 	padding: 0 15px;
+	color: #d8dee9;
 }
 
 #waybar.empty #window {

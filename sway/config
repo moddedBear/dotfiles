@@ -52,7 +52,18 @@ output * bg $wallpaper fill
 # output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
 # output "Unknown 4Series43 0x00000000" pos 3286 0
 # output eDP-1 pos 1920 312
-exec kanshi
+# exec kanshi
+
+output "DP-2" {
+	mode 2560x1440@59Hz
+	pos 1440 180
+	transform normal
+}
+output "DP-1" {
+	mode 2560x1440@59Hz
+	pos 0 0
+	transform 90
+}
 
 ### Idle configuration
 
@@ -87,7 +98,7 @@ input type:keyboard {
     # Map caps lock to escape and use right alt as compose key to create umlauts
     # To actually create them, type the following keys in a sequence:
     # ralt + " + u --> ü
-    xkb_options caps:escape,compose:ralt
+    xkb_options caps:escape,compose:ralt,altwin:swap_lalt_lwin
 }
 
 ### Key bindings
@@ -196,10 +207,10 @@ floating_modifier $mod normal
 bindsym $mod+r mode 'resize'
 mode 'resize' {
     # Resizing keys
-    bindsym h resize shrink width 10px
-    bindsym j resize grow height 10px
-    bindsym k resize shrink height 10px
-    bindsym l resize grow width 10px
+    bindsym h resize shrink width 40px
+    bindsym j resize grow height 40px
+    bindsym k resize shrink height 40px
+    bindsym l resize grow width 40px
 
     # Return to default mode
     bindsym Escape mode 'default'
