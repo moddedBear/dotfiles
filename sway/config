@@ -252,6 +252,7 @@ exec_always sworkstyle &> /tmp/sworkstyle.log
 
 # Autostart
 exec telegram-desktop -startintray
+exec mpv --no-audio-display ~/dotfiles/sway/xp-startup.opus
 
 # Start KDE polkit agent
 exec /usr/lib/polkit-kde-authentication-agent-1
