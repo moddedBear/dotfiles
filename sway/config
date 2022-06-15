@@ -29,16 +29,18 @@ set $foreground #eceff4
 set $highlight #5e81ac
 set $dark #2e3440
 set $red #bf616a
+set $yellow #ebcb8b
+set $teal #8fbcbb
 set $wallpaper ~/Pictures/background
 set $lock_cmd swaylock --daemonize --image $wallpaper
 set $sleep_cmd systemctl suspend
 
 # Set color for focused window
-client.focused $highlight $highlight $foreground
+client.focused $highlight $highlight $foreground $teal $teal
 
 # Set color for other windows
-client.focused_inactive $dark $dark $foreground
-client.unfocused $dark $dark $foreground
+client.focused_inactive $dark $dark $foreground $dark $dark
+client.unfocused $dark $dark $foreground $dark $dark
 client.urgent $red $red $foreground
 
 # Set font
@@ -74,7 +76,6 @@ exec swayidle -w \
     timeout 900 '$lock_cmd' \
     timeout 1200 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    timeout 1800 '$sleep_cmd' \
     before-sleep '$lock_cmd' \
     lock '$lock_cmd'
 
@@ -120,15 +121,15 @@ bindsym $mod+e exec $EXPLORER
 
 # Take screenshots
 bindsym Print+s exec grim "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
-bindsym Print+$mod+s exec grim -g "$(slurp)" "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym $mod+Shift+p exec grim -g "$(slurp)" "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
 bindsym Print exec grim - | wl-copy -t image/png
-bindsym Print+$mod exec grim -g "$(slurp)" - | wl-copy -t image/png
+bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy -t image/png
 
 # Lock screen
 bindsym $mod+ctrl+q exec loginctl lock-session
 
 # Sleep
-bindsym $mod+Shift+s exec $lock_cmd && $sleep_cmd
+#bindsym $mod+Shift+s exec $lock_cmd && $sleep_cmd
 
 # Logout
 bindsym $mod+ctrl+Shift+q exec loginctl terminate-user $USER
@@ -230,7 +231,7 @@ gaps outer 3
 
 # Hide window title bars and borders
 default_border pixel
-hide_edge_borders smart
+hide_edge_borders smart_no_gaps
 
 # Start notification daemon
 exec swaync
@@ -253,8 +254,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 bindsym $mod+period exec wofi-emoji
 
 # Autotiling script
-exec_always killall autotiling
-exec_always autotiling
+exec autotiling
 
 # Dynamically rename workspaces with program icons
 exec_always killall sworkstyle
