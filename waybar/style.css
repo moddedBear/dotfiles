@@ -19,15 +19,15 @@ window#waybar {
 /* Workspaces */
 #workspaces {
 	background: #434c5e;
-	border-radius: 0 15px 15px 0;
+	border-radius: 0 0 10px 0;
 }
 
 #workspaces button:first-child {
-	border-radius: 0 15px 15px 0;
+	border-radius: 0 0 10px 0;
 }
 
 #workspaces button {
-	border-radius: 15px;
+	border-radius: 0 0 10px 10px;
 	min-width: 15px;
 }
 
@@ -55,12 +55,12 @@ window#waybar {
 
 .modules-left {
 	background-color: #2e3440;
-	border-radius: 0 15px 15px 0;
+	border-radius: 0 0 10px 0;
 }
 
 .modules-right {
 	background-color: #2e3440;
-	border-radius: 15px 0 0 15px;
+	border-radius: 0 0 0 10px;
 }
 
 #clock,
