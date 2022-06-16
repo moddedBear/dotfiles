@@ -44,7 +44,7 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_prompt_pwd_dir_length:0
-SETUVAR fish_user_paths:/home/jeremy/\x2ecargo/bin\x1e/home/jeremy/Android/Sdk/platform\x2dtools\x1e/home/jeremy/Android/Sdk/tools/bin\x1e/home/jeremy/Android/Sdk/tools\x1e/home/jeremy/Android/Sdk/emulator\x1e/home/jeremy/\x2elocal/bin/
+SETUVAR fish_user_paths:/home/jeremy/\x2elocal/share/gem/ruby/3\x2e0\x2e0/bin\x1e/home/jeremy/\x2ecargo/bin\x1e/home/jeremy/Android/Sdk/platform\x2dtools\x1e/home/jeremy/Android/Sdk/tools/bin\x1e/home/jeremy/Android/Sdk/tools\x1e/home/jeremy/Android/Sdk/emulator\x1e/home/jeremy/\x2elocal/bin/
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:false
 SETUVAR pure_color_at_sign:pure_color_mute
