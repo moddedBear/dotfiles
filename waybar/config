@@ -42,15 +42,17 @@
   	"format": "{percentage}% ",
   },
   "battery": {
+  	"interval": 10,
     "states": {
-      "warning": 20,
-      "critical": 10
+      "warning": 30,
+      "critical": 15
     },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% ",
     "format-icons": ["", "", "", "", ""]
   },
   "clock": {
+  	"interval": 1,
     "format": "{:%a %d %b / %I:%M %p}",
     "tooltip-format": "<big>{:%B %Y}</big>\n\n<tt><small>{calendar}</small></tt>"
   },
