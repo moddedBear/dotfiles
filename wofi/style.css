@@ -1,22 +1,23 @@
 #window {
-  background-color: #3b4252;
+  background-color: #24283b;
   font-family: "Manrope";
-  color: #c0caf5;
+  color: #a9b1d6;
 }
 
 #input {
-  background-color: #3b4252;
+  background-color: #24283b;
   border-radius: 0;
   border-color: transparent;
-  color: #eceff4;
+  color: #a9b1d6;
   padding: 5px;
 }
 
 #entry {
   padding: 5px;
+  border-radius: 0;
 }
 
 #entry:selected {
-  background-color: #5e81ac;
+  background-color: #414868;
   outline: none;
 }

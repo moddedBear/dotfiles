@@ -1,31 +1,58 @@
 /*
- * vim: ft=less 
+ * vim: ft=less
  */
 
-@define-color border-color #434c5e;
-@define-color bg #3b4252;
-@define-color bg-hover #434c5e;
-@define-color bg-focus #434c5e;
-@define-color bg-selected #5e81ac;
+@define-color cc-bg #1a1b26;
+
+@define-color noti-border-color #414868;
+@define-color noti-bg #24283b;
+@define-color noti-bg-hover #414868;
+@define-color noti-bg-focus #414868;
+@define-color noti-close-bg #24283b;
+@define-color noti-close-bg-hover #f7768e;
+
+@define-color bg-selected #565f89;
 
 * {
-	font-family: "Manrope";
+	font-family: Manrope;
 }
 
 .notification-row {
   outline: none;
 }
+
 .notification-row:focus,
 .notification-row:hover {
-  background: @bg-focus;
+  background: @noti-bg-focus;
 }
 
 .notification {
   border-radius: 0px;
   margin: 6px 12px;
-  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+    0 2px 6px 2px rgba(0, 0, 0, 0.3);
   padding: 0;
 }
+
+/* Uncomment to enable specific urgency colors
+.low {
+  background: yellow;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.normal {
+  background: green;
+  padding: 6px;
+  border-radius: 12px;
+}
+
+.critical {
+  background: red;
+  padding: 6px;
+  border-radius: 12px;
+}
+*/
 
 .notification-content {
   background: transparent;
@@ -34,16 +61,24 @@
 }
 
 .close-button {
-  background: black;
+  background: @noti-close-bg;
   color: white;
   text-shadow: none;
-  padding: 0 2px;
-  box-shadow: none;
+  padding: 0;
   border-radius: 100%;
+  margin-top: 10px;
+  margin-right: 16px;
+  box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
 }
+
 .close-button:hover {
-  background: rgb(30, 30, 30);
+  box-shadow: none;
+  background: @noti-close-bg-hover;
   transition: all 0.15s ease-in-out;
+  border: none;
 }
 
 .notification-default-action,
@@ -51,13 +86,15 @@
   padding: 4px;
   margin: 0;
   box-shadow: none;
-  background: @bg;
-  border: 1px solid @border-color;
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
+  color: white;
 }
 
 .notification-default-action:hover,
 .notification-action:hover {
-  background: @bg-hover;
+  -gtk-icon-effect: none;
+  background: @noti-bg-hover;
 }
 
 .notification-default-action {
@@ -80,9 +117,10 @@
 .notification-action:first-child {
   border-bottom-left-radius: 0px;
 }
+
 .notification-action:last-child {
   border-bottom-right-radius: 0px;
-  border-right: 1px solid @border-color;
+  border-right: 1px solid @noti-border-color;
 }
 
 .image {
@@ -102,15 +140,16 @@
 .time {
   color: white;
   text-shadow: none;
+  margin-right: 18px;
 }
 
 .body {
   background: transparent;
   color: white;
   text-shadow: none;
-  font-size: 13px;
 }
 
+/* The "Notifications" and "Do Not Disturb" text widget */
 .top-action-title {
   color: white;
   text-shadow: none;
@@ -119,36 +158,52 @@
 .control-center-clear-all {
   color: white;
   text-shadow: none;
-  background: @bg;
-  border: 1px solid @border-color;
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
   box-shadow: none;
-  border-radius: 10px;
+  border-radius: 0px;
 }
+
 .control-center-clear-all:hover {
-  background: @bg-hover;
+  background: @noti-bg-hover;
 }
 
 .control-center-dnd {
-  border-radius: 10px;
-  background: @bg;
-  border: 1px solid @border-color;
+  border-radius: 12px;
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
   box-shadow: none;
 }
 
 .control-center-dnd:checked {
   background: @bg-selected;
 }
+
 .control-center-dnd slider {
-  background: @bg-hover;
+  background: @noti-bg-hover;
+  border-radius: 12px;
 }
 
+/* The .control-center Window.
+ * Can't apply padding and margin so may be easier to use "> box" instead
+ */
 .control-center {
-  background: #3b4252;
+  background: @cc-bg;
 }
+
+/* The first control-center child. May be easier to style this than .control-center */
+.control-center > box {
+}
+
 .control-center-list {
   background: transparent;
 }
 
 .floating-notifications {
   background: transparent;
+}
+
+/* Window behind control center and on all other monitors */
+.blank-window {
+  background: alpha(black, 0.25);
 }

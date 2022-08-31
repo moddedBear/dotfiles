@@ -8,6 +8,7 @@
 
 window#waybar {
   /* background-color: #2e3440; */
+  background-image: linear-gradient(rgba(0,0,0,0.6), transparent);
   background-color: transparent;
 }
 
@@ -18,33 +19,47 @@ window#waybar {
 
 /* Workspaces */
 #workspaces {
-	background: #434c5e;
-	border-radius: 0 0 10px 0;
+	/* background: #434c5e; */
+	/* background: #24283b; */
+	background-color: transparent;
+	/* border-radius: 0 0 10px 0; */
+	border-radius: 0;
 }
 
-#workspaces button:first-child {
-	border-radius: 0 0 10px 0;
-}
+/* #workspaces button:first-child { */
+	/* border-radius: 0 0 10px 0; */
+/* } */
 
 #workspaces button {
-	border-radius: 0 0 10px 10px;
+	/* border-radius: 0 0 10px 10px; */
+	border-radius: 0;
 	min-width: 15px;
+	border-top: 1px solid transparent;
+	background-color: transparent;
 }
 
 #workspaces button:hover {
-  background: #4c566a;
-  border-color: transparent;
+  /* background: #4c566a; */
+  /* background: #414868; */
+  background-color: transparent;
+  border-color: #c0caf5;
   box-shadow: none;
 }
 
 #workspaces button.focused {
-  background-color: #81a1c1;
-  color: #2e3440;
+  /* background-color: #81a1c1; */
+  /* background-color: #565f89; */
+  border-top: 1px solid #7aa2f7;
+  /* background-image: linear-gradient(#7aa2f7, transparent); */
+  background-color: transparent;
+  /* color: #2e3440; */
+  color: #c0caf5; 
 }
 
 /* Window title */
 #window {
-	padding: 0 15px;
+	padding: 0 10px;
+	color: #a9b1d6;
 }
 
 #waybar.empty #window {
@@ -53,15 +68,16 @@ window#waybar {
 
 /* Modules */
 
-.modules-left {
-	background-color: #2e3440;
-	border-radius: 0 0 10px 0;
-}
-
-.modules-right {
-	background-color: #2e3440;
-	border-radius: 0 0 0 10px;
-}
+/* .modules-left { */
+	/* background-color: #1a1b26; */
+	/* color: #a9b1d6; */
+	/* border-radius: 0 0 10px 0; */
+/* } */
+/*  */
+/* .modules-right { */
+	/* background-color: #1a1b26; */
+	/* border-radius: 0 0 0 10px; */
+/* } */
 
 #clock,
 #battery,
@@ -73,7 +89,8 @@ window#waybar {
 #custom-notification,
 #idle_inhibitor,
 #mode {
-  color: #d8dee9;
+  /* color: #d8dee9; */
+  color: #a9b1d6; 
   padding: 0 3px;
   margin: 0 8px;
 }
@@ -91,13 +108,16 @@ window#waybar {
 
 #network.disconnected {
   font-weight: bold;
-  color: #bf616a;
+  /* color: #bf616a; */
+  color: #f7768e;
 }
 
 tooltip {
 	color: white;
-	background-color: #3b4252;
-	border: 2px solid #434c5e;
+	/* background-color: #3b4252; */
+	background-color: #1a1b26;
+	/* border: 2px solid #434c5e; */
+	border: 2px solid #1a1b26;
 	box-shadow: none;
 	text-shadow: none;
 }
