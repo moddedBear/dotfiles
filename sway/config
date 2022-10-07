@@ -259,7 +259,8 @@ exec autotiling
 exec sworkstyle &> /tmp/sworkstyle.log
 
 # Autostart
-exec sleep 2s && telegram-desktop
+# exec sleep 2s && telegram-desktop
+exec sleep 2s && signal-desktop
 exec ~/scripts/random-startup-sound/random-startup-sound.sh
 
 # Start KDE polkit agent
@@ -270,6 +271,7 @@ exec /usr/lib/polkit-kde-authentication-agent-1
 ## Android emulator
 #for_window [title="^Android Emulator - .+$"] floating enable
 
-for_window [title="^Telegram"] move window to scratchpad
+#for_window [title="^Telegram"] move window to scratchpad
+for_window [class="^Signal"] move window to scratchpad
 
 include /etc/sway/config.d/*

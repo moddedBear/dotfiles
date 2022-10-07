@@ -60,7 +60,7 @@
     "format-ethernet": "",
     "format-wifi": "{essid} ",
     "format-linked": "",
-    "format-disconnected": "",
+    "format-disconnected": "",
     "tooltip-format-wifi": "{essid} at {signalStrength}%",
     "on-click": "foot nmtui"
   },
