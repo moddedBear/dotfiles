@@ -1,0 +1,9 @@
+font = /usr/share/fonts/manrope/Manrope-Regular.ttf
+background-color = #2e3440
+outline-width = 1
+outline-color = #8fbcbb
+border-width = 0
+text-color = #eceff4
+selection-color = #8fbcbb
+width = 900
+font-size = 16

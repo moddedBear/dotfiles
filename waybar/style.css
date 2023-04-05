@@ -3,12 +3,13 @@
   /* border-radius: 0; */
   font-family: "Manrope", "Font Awesome 6 Free";
   font-size: 13px;
-  /* color: #d8dee9; */
+  /*color: #d8dee9;*/
 }
 
 window#waybar {
   /* background-color: #2e3440; */
   background-color: transparent;
+	color: #d8dee9;
 }
 
 /* Workspaces */
@@ -63,6 +64,7 @@ window#waybar {
 .modules-right {
 	background-color: #2e3440;
 	border-radius: 0 0 0 10px;
+	color: #d8dee9;
 }
 
 #clock,

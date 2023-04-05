@@ -40,6 +40,7 @@
   "memory": {
   	"interval": 10,
   	"format": "{percentage}% ",
+    "on-click": "",
   },
   "battery": {
     "states": {
@@ -52,7 +53,8 @@
   },
   "clock": {
     "format": "{:%a %d %b / %I:%M %p}",
-    "tooltip-format": "<big>{:%B %Y}</big>\n\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%B %Y}</big>\n\n<tt><small>{calendar}</small></tt>",
+    "on-click": ""
   },
   "network": {
     "format-ethernet": "",

@@ -14,5 +14,5 @@ end
 
 update_cwd_osc # Run once since we might have inherited PWD from a parent shell
 
-bind \cl 'clear; please; commandline -f repaint'
-please
+bind \cl 'clear; sticky; commandline -f repaint'
+sticky

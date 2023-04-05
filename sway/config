@@ -1,4 +1,5 @@
 ### Variables
+seat seat0 xcursor_theme capitaine-cursors 24
 
 # Set logo key as main modifier
 set $mod Mod4
@@ -6,7 +7,9 @@ set $mod Mod4
 # Set programs
 set $TERMINAL foot
 set $BROWSER env MOZ_ENABLE_WAYLAND=1 firefox
-set $LAUNCHER env STUDIO_JDK=/usr/lib/jvm/java-11-openjdk/ _JAVA_AWT_WM_NONREPARENTING=1 kickoff
+#set $BROWSER vivaldi-stable --force-dark-mode
+#set $LAUNCHER env STUDIO_JDK=/usr/lib/jvm/java-11-openjdk/ _JAVA_AWT_WM_NONREPARENTING=1 kickoff
+set $LAUNCHER tofi-drun --drun-launch=true
 set $EXPLORER dolphin
 
 # wob
@@ -31,8 +34,9 @@ set $dark #2e3440
 set $red #bf616a
 set $yellow #ebcb8b
 set $teal #8fbcbb
+set $purple #b48ead
 set $wallpaper ~/Pictures/background
-set $lock_cmd swaylock --daemonize --image $wallpaper
+set $lock_cmd swaylock --daemonize --image DP-1:/home/jp/Pictures/bsod.png --image DP-2:/home/jp/Pictures/bsod-rotated.png
 set $sleep_cmd systemctl suspend
 
 # Set color for focused window
@@ -56,12 +60,12 @@ output * bg $wallpaper fill
 # output eDP-1 pos 1920 312
 # exec kanshi
 
-output "DP-2" {
+output "DP-1" {
 	mode 2560x1440@59Hz
 	pos 1440 180
 	transform normal
 }
-output "DP-1" {
+output "DP-2" {
 	mode 2560x1440@59Hz
 	pos 0 0
 	transform 90
@@ -105,7 +109,8 @@ input type:keyboard {
 ### Key bindings
 
 # App launcher
-bindsym $mod+space exec wofi --show drun --no-actions --insensitive --prompt 'Run' -W 500 -H 400 | xargs swaymsg exec --
+#bindsym $mod+space exec wofi --show drun --no-actions --insensitive --prompt 'Run' -W 500 -H 400 | xargs swaymsg exec --
+bindsym $mod+space exec $LAUNCHER
 bindsym $mod+comma exec ~/dotfiles/wofi-scripts/windows.py
 # bindsym $mod+space exec wofi --show run
 # bindsym $mod+space exec $LAUNCHER
@@ -120,13 +125,14 @@ bindsym $mod+w exec $BROWSER
 bindsym $mod+e exec $EXPLORER
 
 # Take screenshots
-bindsym Print+s exec grim "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
-bindsym $mod+Shift+p exec grim -g "$(slurp)" "/home/jeremy/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym Print+s exec grim "/home/jp/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
+bindsym $mod+Shift+p exec grim -g "$(slurp)" "/home/jp/Pictures/screenshots/screenshot-$(date +'%F-%H-%M-%S').png"
 bindsym Print exec grim - | wl-copy -t image/png
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy -t image/png
 
 # Lock screen
-bindsym $mod+ctrl+q exec loginctl lock-session
+#bindsym $mod+ctrl+q exec loginctl lock-session
+bindsym $mod+ctrl+q exec $lock_cmd
 
 # Sleep
 #bindsym $mod+Shift+s exec $lock_cmd && $sleep_cmd
@@ -261,7 +267,7 @@ exec_always killall sworkstyle
 exec_always sworkstyle &> /tmp/sworkstyle.log
 
 # Autostart
-exec telegram-desktop -startintray
+#exec telegram-desktop -startintray
 
 # Start KDE polkit agent
 exec /usr/lib/polkit-kde-authentication-agent-1

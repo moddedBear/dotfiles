@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export ANDROID_HOME:/home/jeremy/Android/Sdk
 SETUVAR --export BAT_THEME:Nord
-SETUVAR --export EDITOR:micro
+SETUVAR --export EDITOR:helix
 SETUVAR --export GOBIN:/home/jeremy/\x2elocal/bin/
 SETUVAR --export MICRO_TRUECOLOR:1
 SETUVAR --export MOZ_ENABLE_WAYLAND:1
