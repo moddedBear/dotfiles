@@ -1,5 +1,6 @@
 {
-  "modules-left": ["sway/workspaces", "sway/window"],
+  "layer": "top",
+  "modules-left": ["wlr/workspaces", "sway/window", "hyprland/window"],
   "modules-right": [
   	"tray",
     "custom/notification",
@@ -10,6 +11,12 @@
     "battery",
     "clock"
   ],
+  "wlr/workspaces": {
+    "on-click": "activate",
+  },
+  "hyprland/window": {
+    "separate-outputs": true
+  },
   "custom/notification": {
     "tooltip": false,
     "format": "{icon}",

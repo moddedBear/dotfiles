@@ -1,4 +1,4 @@
-# Defined via `source`
-function lls --wraps='ls -lah' --wraps='exa -la' --description 'alias lls=exa -la'
-  exa -la $argv; 
+function lls --wraps='ls -lah' --wraps='exa -la' --wraps='exa -la --icons' --description 'alias lls=exa -la --icons'
+  exa -la --icons $argv
+        
 end

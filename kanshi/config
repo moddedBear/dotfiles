@@ -1,10 +1,10 @@
 profile {
-	output "BenQ Corporation BenQ GL2780 ETT5L02909SL0" position 0,0 mode 1920x1080@74.973Hz
-	output eDP-1 position 1920,312
+	output "BNQ BenQ GL2780 ETT5L02909SL0" position 1366,0 mode 1920x1080@74.973Hz
+	output eDP-1 position 0,312
 
 }
 profile {
-	output HDMI-A-1
+	output HDMI-A-1 mode 1920x1080
 	output eDP-1 disable
 }
 

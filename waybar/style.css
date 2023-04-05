@@ -46,7 +46,7 @@ window#waybar {
   box-shadow: none;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   /* background-color: #81a1c1; */
   /* background-color: #565f89; */
   border-top: 1px solid #7aa2f7;
