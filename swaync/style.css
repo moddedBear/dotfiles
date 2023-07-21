@@ -2,10 +2,13 @@
  * vim: ft=less
  */
 
-@define-color cc-bg #1a1b26;
+/* @define-color cc-bg #1a1b26; */
+@define-color cc-bg alpha(black, 0.5);
 
-@define-color noti-border-color #414868;
-@define-color noti-bg #24283b;
+/* @define-color noti-border-color #414868; */
+@define-color noti-border-color #24283b;
+/* @define-color noti-bg #24283b; */
+@define-color noti-bg alpha(black, 0.5);
 @define-color noti-bg-hover #414868;
 @define-color noti-bg-focus #414868;
 @define-color noti-close-bg #24283b;
@@ -27,10 +30,12 @@
 }
 
 .notification {
-  border-radius: 0px;
+  border-radius: 5px;
   margin: 6px 12px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+  box-shadow: none;
+  /* box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
     0 2px 6px 2px rgba(0, 0, 0, 0.3);
+  */
   padding: 0;
 }
 
@@ -57,7 +62,7 @@
 .notification-content {
   background: transparent;
   padding: 6px;
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 .close-button {
@@ -98,7 +103,7 @@
 }
 
 .notification-default-action {
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 /* When alternative actions are visible */
@@ -115,21 +120,22 @@
 
 /* add bottom border radius to eliminate clipping */
 .notification-action:first-child {
-  border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 5px;
 }
 
 .notification-action:last-child {
-  border-bottom-right-radius: 0px;
+  border-bottom-right-radius: 5px;
   border-right: 1px solid @noti-border-color;
 }
 
 .image {
+  border-radius: 5px;
 }
 
 .body-image {
   margin-top: 6px;
   background-color: white;
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 .summary {
@@ -161,7 +167,7 @@
   background: @noti-bg;
   border: 1px solid @noti-border-color;
   box-shadow: none;
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 .control-center-clear-all:hover {
@@ -205,5 +211,5 @@
 
 /* Window behind control center and on all other monitors */
 .blank-window {
-  background: alpha(black, 0.25);
+  background: transparent;
 }

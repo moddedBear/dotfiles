@@ -4,18 +4,20 @@
   "modules-right": [
   	"tray",
     "custom/notification",
-  	"idle_inhibitor",
   	"memory",
     "network",
     "pulseaudio",
-    "battery",
     "clock"
   ],
   "wlr/workspaces": {
     "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace m-1",
+    "on-scroll-down": "hyprctl dispatch workspace m+1",
   },
   "hyprland/window": {
-    "separate-outputs": true
+    "separate-outputs": true,
+    "on-scroll-up": "hyprctl dispatch workspace m-1",
+    "on-scroll-down": "hyprctl dispatch workspace m+1",
   },
   "custom/notification": {
     "tooltip": false,
