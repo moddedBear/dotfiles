@@ -13,8 +13,8 @@ function update_cwd_osc --on-variable PWD --description 'Notify terminals when $
 end
 
 update_cwd_osc # Run once since we might have inherited PWD from a parent shell
-sticky
-bind \cl "clear; sticky; commandline -f repaint"
+#sticky
+#bind \cl "clear; sticky; commandline -f repaint"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

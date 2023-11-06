@@ -18,7 +18,7 @@ lvim.format_on_save = {
   pattern = { "*.lua", ".go" },
   timeout = 1000,
 }
-vim.o.shell = "/usr/bin/fish"
+-- vim.o.shell = "/usr/bin/fish"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -41,7 +41,7 @@ lvim.keys.insert_mode["<Tab>"] = false
 lvim.builtin.which_key.mappings["y"] = { "<cmd>%y<cr>", "Yank entire file" }
 
 -- -- Change theme settings
--- lvim.colorscheme = "lunar"
+lvim.colorscheme = "adwaita"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -156,6 +156,11 @@ lvim.plugins = {
         post_hook = nil,             -- Function to run after the scrolling animation ends
       })
     end
+  },
+  {
+    "Mofiqul/adwaita.nvim",
+    lazy = false,
+    priority = 1000,
   },
 }
 
